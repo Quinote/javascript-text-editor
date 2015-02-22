@@ -1,6 +1,6 @@
 /* Quinote Software Group 2015
  *
- * Author: Cameron Basham
+ * Author(s): Cameron Basham, Elliott Warkus
  *
  *
  *
@@ -99,12 +99,6 @@ var buildList = function(parseResult) {
   list = $('.notes-list ol');
   list.empty();
   for (i=0; i<parseResult.identifiers.length; i++) {
-    list.append($('<li>').text(parseResult.identifiers[i].identifier));
-  }
-  for (i=0; i<parseResult.dates.length; i++) {
-    list.append($('<li>').text(parseResult.dates[i].date));
-  }
-  for (i=0; i<parseResult.other.length; i++) {
-    list.append($('<li>').text(parseResult.other[i].identifier));
+	  list.append($('<li>').text(parseResult.parsedElements[i].getIdentifier()));
   }
 };
