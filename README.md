@@ -15,5 +15,6 @@ TODO:
 
 Other notes [Elliott]:
   - Probably best to use iteration through ParseResult.parsedElements instead of aggregating dates, identifiers and others
+  - [The following may not be relevant to your work, Cameron, but rather Kat's:]
   - Appearance-wise, the sidebar should probably be aligned with the text input box and bordered similarly
   - It should have a title. Doesn't have to be too obtrusive, but right now the app is a blank slate
