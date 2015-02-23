@@ -98,7 +98,37 @@ var buildList = function(parseResult) {
    */
   list = $('.notes-list ol');
   list.empty();
-  for (i=0; i<parseResult.identifiers.length; i++) {
-	  list.append($('<li>').text(parseResult.parsedElements[i].getIdentifier()));
+  
+  if (typeof parseResult.parsedElements === "undefined") {
+	  console.log(parseResult);
+  }
+  
+  for (i=0; i<parseResult.parsedElements.length; i++) {
+	  var nextElement = parseResult.parsedElements[i];
+
+	list.append($('<li>').text(nextElement.getIdentifier()));
+	if (nextElement.subelements.length > 0) {
+		list.append(buildSublist(nextElement.subelements, list, 1));
+	}		  
   }
 };
+
+function buildSublist(elements, indentLevel) {
+	var newList = "<ol>";
+	
+    // create string of indents of length == indentLevel
+    var indents = "";
+    for (var i=0; i<indentLevel; i++) {
+  	  indents += "\t";
+    }
+	for (i=0; i<elements.length; i++) {
+		var nextElement = elements[i];
+		newList += indents + "<li>" + nextElement.getIdentifier() + "<\li>";
+		if (nextElement.subelements.length > 0) {
+			// recurse on sublists
+			newList += buildSublist(nextElement.subelements, indentLevel+1);
+		}
+	}
+	newList += "</ol>";
+	return newList;
+}
