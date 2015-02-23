@@ -1,0 +1,11 @@
+Changes to Kat's code:
+
+editor -> editor-wrapper
+finaleditor -> editor
+
+
+
+added div endings at bottom
+fixed id issue with sideheader, and commented out pertaining CSS
+put code into separate files
+
