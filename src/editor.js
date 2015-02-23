@@ -94,7 +94,6 @@ var buildList = function(parseResult) {
    * TODO:
    *    • Make this not so horribly inefficient
    *    • Figure out how we should separate/format the types of keys
-   *    • Handle double entry when only a colon comes after an identifier
    */
   list = $('.notes-list ol');
   list.empty();
